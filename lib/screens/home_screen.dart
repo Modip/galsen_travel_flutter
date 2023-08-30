@@ -74,7 +74,7 @@ class HomeScreen extends StatelessWidget {
                     return const Padding(
                       padding: EdgeInsets.only(right: 18, left: 8),
                       child: Text(
-                        "hello",
+                        "Places",
                         style: TextStyle(
                             fontSize: 16, fontWeight: FontWeight.bold),
                       ),
@@ -147,7 +147,7 @@ class HomeScreen extends StatelessWidget {
             const SizedBox(
               height: 6,
             ),
-            SizedBox(
+            Container(
               height: 90,
               child: ListView.builder(
                   scrollDirection: Axis.horizontal,
@@ -162,19 +162,17 @@ class HomeScreen extends StatelessWidget {
                             color: Colors.blueGrey,
                             borderRadius: BorderRadius.circular(10)),
                         child: Row(
-                          
                           children: [
-                            SizedBox(
-                              child: Image.asset("assets/venus.png"),
+                            Image.asset(
+                              "assets/lac_rose.png",
+                              width: 110,
                             ),
-                            const SizedBox(
-                              child: Text(
-                                "test,test",
-                                style: TextStyle(
-                                    fontSize: 14,
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w400),
-                              ),
+                            const Text(
+                              "test,test",
+                              style: TextStyle(
+                                  fontSize: 14,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w400),
                             ),
                           ],
                         ),
