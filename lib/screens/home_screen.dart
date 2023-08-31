@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:galsen_travel/constant.dart';
+import 'package:galsen_travel/data.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  final Place place;
+
+  const HomeScreen({
+    Key? key, required this.place
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 244, 242, 242),
       appBar: AppBar(
-        backgroundColor: Colors.white,
         elevation: 0,
         title: const Text(
           "Galsen Travel",
@@ -33,7 +37,7 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30),
+              padding: const EdgeInsets.symmetric(horizontal: 10),
               child: Container(
                 padding: const EdgeInsets.symmetric(horizontal: 10),
                 width: 250,
@@ -41,7 +45,6 @@ class HomeScreen extends StatelessWidget {
                 decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(10),
-                    border: Border.all(color: Colors.grey),
                     boxShadow: [
                       BoxShadow(
                           offset: const Offset(3, 3),
@@ -85,37 +88,41 @@ class HomeScreen extends StatelessWidget {
               height: 10,
             ),
             SizedBox(
-              height: 200,
+              height: 180,
               child: ListView.builder(
                   scrollDirection: Axis.horizontal,
-                  itemCount: 10,
+                  itemCount: places.length,
                   shrinkWrap: true,
                   itemBuilder: (context, index) {
                     return Padding(
+                      
                       padding: const EdgeInsets.only(left: 8, right: 12),
                       child: Container(
-                        width: 150,
+                        width: 170,
                         decoration: BoxDecoration(
-                            color: Colors.blueGrey,
+                            color: kPrimaryColor,
                             borderRadius: BorderRadius.circular(10)),
                         child: Column(
                           children: [
-                            Column(
-                              children: [Image.asset("assets/neptune.png")],
+                            ClipRRect(
+                              borderRadius:
+                                  BorderRadius.circular(10), // Image border
+                              child: Image.asset(place.image,
+                                  fit: BoxFit.cover),
                             ),
-                            const Spacer(),
-                            const Padding(
-                              padding: EdgeInsets.only(bottom: 12.0),
-                              child: SizedBox(
-                                child: Text(
-                                  "test,test,test,test",
-                                  style: TextStyle(
-                                      fontSize: 16,
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.w400),
-                                ),
+                            const SizedBox(
+                              height: 3,
+                            ),
+                            Container(
+                              padding: const EdgeInsets.only(top: 10),
+                              child: Text(
+                                place.title,
+                                style: TextStyle(
+                                    fontSize: 18,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w600),
                               ),
-                            )
+                            ),
                           ],
                         ),
                       ),

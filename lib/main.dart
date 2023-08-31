@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:galsen_travel/constant.dart';
 import 'package:galsen_travel/screens/home_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import 'screens/detail.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,9 +18,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Galsen Travel',
       theme: ThemeData(
-          primarySwatch: Colors.blue, textTheme: GoogleFonts.mulishTextTheme()),
+          primaryColor: kPrimaryColor,
+          textTheme: GoogleFonts.mulishTextTheme()),
       debugShowCheckedModeBanner: false,
-      home: const HomeScreen(),
+      home: const Detail(),
     );
   }
 }
