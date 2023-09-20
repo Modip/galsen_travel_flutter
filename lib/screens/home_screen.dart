@@ -4,13 +4,12 @@ import 'package:galsen_travel/data.dart';
 
 class HomeScreen extends StatelessWidget {
   final Place place;
-
-  const HomeScreen({
-    Key? key, required this.place
-  }) : super(key: key);
+  const HomeScreen({Key? key, required this.place}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -71,14 +70,15 @@ class HomeScreen extends StatelessWidget {
               height: 20,
               child: ListView.builder(
                   scrollDirection: Axis.horizontal,
-                  itemCount: 10,
+                  itemCount: places.length,
                   shrinkWrap: true,
                   itemBuilder: (context, index) {
-                    return const Padding(
-                      padding: EdgeInsets.only(right: 18, left: 8),
+                    return Padding(
+                      padding: const EdgeInsets.only(right: 18, left: 8),
+                      
                       child: Text(
-                        "Places",
-                        style: TextStyle(
+                        place.title,
+                        style: const TextStyle(
                             fontSize: 16, fontWeight: FontWeight.bold),
                       ),
                     );
@@ -88,14 +88,13 @@ class HomeScreen extends StatelessWidget {
               height: 10,
             ),
             SizedBox(
-              height: 180,
+              height: height * .39,
               child: ListView.builder(
                   scrollDirection: Axis.horizontal,
                   itemCount: places.length,
                   shrinkWrap: true,
                   itemBuilder: (context, index) {
                     return Padding(
-                      
                       padding: const EdgeInsets.only(left: 8, right: 12),
                       child: Container(
                         width: 170,
@@ -107,7 +106,7 @@ class HomeScreen extends StatelessWidget {
                             ClipRRect(
                               borderRadius:
                                   BorderRadius.circular(10), // Image border
-                              child: Image.asset(place.image,
+                              child: Image.asset("assets/venus.png",
                                   fit: BoxFit.cover),
                             ),
                             const SizedBox(
@@ -115,8 +114,8 @@ class HomeScreen extends StatelessWidget {
                             ),
                             Container(
                               padding: const EdgeInsets.only(top: 10),
-                              child: Text(
-                                place.title,
+                              child: const Text(
+                                "Venus",
                                 style: TextStyle(
                                     fontSize: 18,
                                     color: Colors.white,
@@ -155,7 +154,7 @@ class HomeScreen extends StatelessWidget {
               height: 6,
             ),
             Container(
-              height: 90,
+              height: height * .15,
               child: ListView.builder(
                   scrollDirection: Axis.horizontal,
                   itemCount: 10,
@@ -172,7 +171,7 @@ class HomeScreen extends StatelessWidget {
                           children: [
                             Image.asset(
                               "assets/lac_rose.png",
-                              width: 110,
+                              width: 90,
                             ),
                             const Text(
                               "test,test",
@@ -203,7 +202,7 @@ class HomeScreen extends StatelessWidget {
                 color: Colors.grey,
               ),
               Icon(
-                Icons.share,
+                Icons.explore,
                 color: Colors.grey,
               ),
               Icon(
