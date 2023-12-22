@@ -71,7 +71,7 @@ List<Place> places = [
     title: "Neptune",
     subtitle: "Je suis la planéte rouge",
     description:
-        "Planète la plus éloignée du soleil, Neptune n'a pas été découverte par observation mais grâce à des calculs mathématiques. Invisible à l'oeil nu, Neptune apparaît au télescope comme un disque bleu (couleur qu'elle doit au méthane dont elle est en partie constituée).\n\nBien qu'elle reçoive très peu d'énergie du soleil, son atmosphère, animée de vents violents, présente des formations météorologiques bien visibles (bandes, grandes taches sombres).",
+        "Neptune n'a pas été découverte par observation mais grâce à des calculs mathématiques. Invisible à l'oeil nu, Neptune apparaît au télescope comme un disque bleu (couleur qu'elle doit au méthane dont elle est en partie constituée).\n\nBien qu'elle reçoive très peu d'énergie du soleil, son atmosphère, animée de vents violents, présente des formations météorologiques bien visibles (bandes, grandes taches sombres).",
     image: "assets/images/neptune.png",
   ),
 ];
