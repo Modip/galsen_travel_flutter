@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:galsen_travel/screens/test.dart';
+import 'package:galsen_travel/constant.dart';
 
 import 'home_screen.dart';
 
@@ -28,11 +28,14 @@ class WelcomePage extends StatelessWidget {
             child: Column(
               children: [
                 Text(
-                  "Des paysages magnifiques, \n Une faune et une flore diversifiée",
-                  style: TextStyle(fontSize: width * 0.06, color: Colors.white),
+                  "Des paysages magnifiques, \nUne faune et une flore diversifiée,\nDes plages à coupez le soufle",
+                  style: TextStyle(
+                      fontSize: width * 0.05,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white),
                 ),
                 SizedBox(
-                  height: height * 0.05,
+                  height: height * 0.03,
                 ),
                 InkWell(
                   onTap: () {
@@ -47,10 +50,10 @@ class WelcomePage extends StatelessWidget {
                         color: Colors.white),
                     child: Center(
                       child: Text(
-                        "Commencez",
+                        "Explorez",
                         style: TextStyle(
                             fontSize: width * 0.06,
-                            color: Colors.black,
+                            color: kTextColor,
                             fontWeight: FontWeight.bold),
                       ),
                     ),
