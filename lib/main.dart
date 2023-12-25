@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:galsen_travel/constant.dart';
 import 'package:galsen_travel/screens/welcome.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() {
@@ -15,13 +16,13 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'Galsen Travel',
       theme: ThemeData(
           primaryColor: kPrimaryColor,
           textTheme: GoogleFonts.mulishTextTheme()),
       debugShowCheckedModeBanner: false,
-      home: WelcomePage(),
+      home: const WelcomePage(),
     );
   }
 }

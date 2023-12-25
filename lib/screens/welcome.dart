@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:galsen_travel/constant.dart';
-
+import 'package:get/get.dart';
 import 'home_screen.dart';
 
 class WelcomePage extends StatelessWidget {
@@ -39,8 +39,9 @@ class WelcomePage extends StatelessWidget {
                 ),
                 InkWell(
                   onTap: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => HomeScreen()));
+                    Get.to(() => const HomeScreen(),
+                        transition: Transition.fade,
+                        duration: const Duration(seconds: 2));
                   },
                   child: Container(
                     height: height * 0.065,

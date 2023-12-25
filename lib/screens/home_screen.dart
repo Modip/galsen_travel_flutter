@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:galsen_travel/constant.dart';
 import 'package:galsen_travel/data.dart';
+import 'package:galsen_travel/screens/components/recommende_item.dart';
+
+import 'components/place_item.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -11,21 +13,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  List categories = [
-    "Places",
-    "Hotels",
-    "Monuments",
-    "Plages",
-    "Parcs",
-    "Evenement"
-  ];
-  List imgCovers = [
-    "assets/dakar1.jpg",
-    "assets/senegal3.jpg",
-    "assets/senegal2.jpg",
-    "assets/lac_rose.png",
-    "assets/pirogue.png",
-  ];
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
@@ -104,30 +91,32 @@ class _HomeScreenState extends State<HomeScreen> {
             SizedBox(
               height: height * 0.06,
               child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: categories.length,
-                  shrinkWrap: true,
-                  itemBuilder: (context, index) {
-                    return Padding(
-                      padding: const EdgeInsets.only(left: 8),
-                      child: Container(
-                          width: width * 0.28,
-                          height: height * 0.01,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(8),
-                            color: Colors.white,
-                          ),
-                          child: Center(
-                            child: Text(
-                              categories[index],
-                              style: TextStyle(
-                                  fontSize: width * 0.05,
-                                  fontWeight: FontWeight.w600,
-                                  color: kTextColor),
-                            ),
-                          )),
-                    );
-                  }),
+                scrollDirection: Axis.horizontal,
+                itemCount: categories.length,
+                shrinkWrap: true,
+                itemBuilder: (context, index) {
+                  return Padding(
+                    padding: const EdgeInsets.only(left: 8),
+                    child: Container(
+                      width: width * 0.28,
+                      height: height * 0.01,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(8),
+                        color: Colors.white,
+                      ),
+                      child: Center(
+                        child: Text(
+                          categories[index],
+                          style: TextStyle(
+                              fontSize: width * 0.05,
+                              fontWeight: FontWeight.w600,
+                              color: kTextColor),
+                        ),
+                      ),
+                    ),
+                  );
+                },
+              ),
             ),
             const SizedBox(
               height: 10,
@@ -135,57 +124,13 @@ class _HomeScreenState extends State<HomeScreen> {
             SizedBox(
               height: height * .37,
               child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: imgCovers.length,
-                  shrinkWrap: true,
-                  itemBuilder: (context, index) {
-                    return Padding(
-                        padding: const EdgeInsets.only(left: 8, right: 8),
-                        child: InkWell(
-                          onTap: () {},
-                          child: Container(
-                            width: width * 0.5,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(20),
-                              image: DecorationImage(
-                                fit: BoxFit.cover,
-                                image: AssetImage("${imgCovers[index]}"),
-                              ),
-                            ),
-                            child: Stack(children: [
-                              Align(
-                                alignment: Alignment.bottomCenter,
-                                child: SizedBox(
-                                  height: height * 0.12,
-                                  width: width * 0.4,
-                                  child: Column(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceEvenly,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        "Coucou",
-                                        style: TextStyle(
-                                            fontSize: width * 0.045,
-                                            color: Colors.white),
-                                      ),
-                                      Text(
-                                        "Coucou",
-                                        style: TextStyle(
-                                            fontSize: width * 0.06,
-                                            fontWeight: FontWeight.w800,
-                                            color: Colors.white),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ]),
-                          ),
-                        ));
-                  }),
+                scrollDirection: Axis.horizontal,
+                itemCount: places.length,
+                shrinkWrap: true,
+                itemBuilder: (context, index) => PlaceItem(
+                  place: places[index],
+                ),
+              ),
             ),
             const SizedBox(
               height: 5,
@@ -198,11 +143,11 @@ class _HomeScreenState extends State<HomeScreen> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: const [
                     Text(
-                      "Recommended",
+                      "Pour vous",
                       textAlign: TextAlign.start,
                       style: TextStyle(
                           color: kTextColor,
-                          fontWeight: FontWeight.w600,
+                          fontWeight: FontWeight.bold,
                           fontSize: 16),
                     )
                   ],
@@ -212,63 +157,16 @@ class _HomeScreenState extends State<HomeScreen> {
             const SizedBox(
               height: 5,
             ),
-            Container(
+            SizedBox(
               height: height * .12,
               child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: imgCovers.length,
-                  shrinkWrap: true,
-                  itemBuilder: (context, index) {
-                    return Padding(
-                      padding: const EdgeInsets.only(
-                        left: 8,
-                      ),
-                      child: Container(
-                        width: width * .6,
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(10)),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Column(
-                              children: [
-                                Container(
-                                  height: height * .12,
-                                  width: width * .3,
-                                  decoration: const BoxDecoration(
-                                    borderRadius: BorderRadius.only(
-                                        topLeft: Radius.circular(10),
-                                        bottomLeft: Radius.circular(10)),
-                                    image: DecorationImage(
-                                      fit: BoxFit.cover,
-                                      image: AssetImage("assets/saloum2.jpg"),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                            SizedBox(
-                              width: width * .05,
-                            ),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                const Text(
-                                  "test,",
-                                  style: TextStyle(
-                                      fontSize: 20,
-                                      color: kPrimaryColor,
-                                      fontWeight: FontWeight.w400),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                    );
-                  }),
+                scrollDirection: Axis.horizontal,
+                itemCount: recommendes.length,
+                shrinkWrap: true,
+                itemBuilder: (context, index) => RecommendeItem(
+                  recommende: recommendes[index],
+                ),
+              ),
             ),
           ],
         ),
