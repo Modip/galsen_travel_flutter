@@ -1,173 +1,148 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:galsen_travel/constant.dart';
+import 'package:galsen_travel/controllers/detail_controller.dart';
+import 'package:get/get.dart';
+
+import '../data.dart';
 
 class Detail extends StatefulWidget {
-  const Detail({ Key? key }) : super(key: key);
+  final Place place;
+  const Detail({Key? key, required this.place}) : super(key: key);
 
   @override
   State<Detail> createState() => _DetailState();
 }
 
 class _DetailState extends State<Detail> {
-  int currentIndex = 0;
-
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
+    double width = MediaQuery.of(context).size.width;
+    final DetailController fav = Get.put(DetailController());
     return Scaffold(
-      backgroundColor: Colors.white,
-      body: SizedBox(
-        width: width,
-        height: height,
-        child: Stack(
+      backgroundColor: kBackgroundColor,
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Positioned(
-              top: 0,
-              left: 0,
-              right: 0,
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10),
-                child: SizedBox(
-                  height: height,
-                  child: Column(children: [
-                    SizedBox(
-                      height: height * .010,
-                    ),
-                    SizedBox(
-                      width: width,
-                      height: height * .4,
-                      child: Stack(
-                        children: [
-                          Positioned(
-                            child: SizedBox(
-                              width: width,
-                              height: height * .8,
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(16),
-                                child: PageView.builder(
-                                  itemCount: 3,
-                                  physics: const ClampingScrollPhysics(),
-                                  onPageChanged: (value) {
-                                    setState(() {
-                                      currentIndex = value;
-                                    });
-                                  },
-                                  itemBuilder: ((context, index) {
-                                    return Image.asset("assets/lac_rose.png",
-                                        fit: BoxFit.cover);
-                                  }),
-                                ),
-                              ),
+            Container(
+              margin: const EdgeInsets.only(left: 12),
+              height: height * .6,
+              width: width * .9,
+              decoration: const BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(10),
+                      bottomRight: Radius.circular(10)),
+                  image: DecorationImage(
+                      image: AssetImage("assets/dakar1.jpg"),
+                      fit: BoxFit.cover)),
+              child: Stack(children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: SizedBox(
+                    height: height * 0.05,
+                    child: Row(
+                      children: [
+                        InkWell(
+                          onTap: () => Get.back(),
+                          child: Container(
+                            alignment: Alignment.center,
+                            padding: const EdgeInsets.only(left: 5),
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(12)),
+                            child: const Icon(
+                              Icons.arrow_back_ios,
+                              color: kPrimaryColor,
+                              size: 25,
                             ),
                           ),
-                          const Positioned(
-                              top: 20,
-                              left: 25,
-                              child: Text(
-                                "Bienvenue",
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 24,
-                                    fontWeight: FontWeight.w700),
-                              )),
-                          Positioned(
-                            bottom: 10,
-                            left: 0,
-                            right: 0,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: List.generate(
-                                3,
-                                (index) => AnimatedContainer(
-                                  duration: const Duration(milliseconds: 2),
-                                  height: 10,
-                                  width: currentIndex == index ? 20 : 10,
-                                  margin: const EdgeInsets.only(right: 5),
-                                  decoration: BoxDecoration(
-                                      color: currentIndex == index
-                                          ? Colors.grey
-                                          : Colors.white,
-                                      borderRadius: BorderRadius.circular(30)),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    SizedBox(
-                      height: height * .03,
-                    ),
-                    Row(
-                      children: const [
-                        Text("Description",
-                            style: TextStyle(
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.black))
+                        )
                       ],
                     ),
-                    SizedBox(
-                      height: height * .01,
-                    ),
-                    Column(
-                      children: const [
-                        Text(
-                          "Le lac Rose, ou lac Rëtba pour les Wolofs, est une lagune côtière fermée, c'est-à-dire coupée de la mer, situé au Sénégal, à proximité immédiate de Dakar.Le « Lac » s'étend sur environ 3 km2, avec une profondeur faible. Ces eaux sont salées et ont une teinte rose en raison de la présence d'une algue microscopique.\n Ce site touristique est l'un des plus visités du Sénégal. Il doit sa renommée à la teinte originale et changeante de son eau, mais aussi au rallye Paris-Dakar dont il constituait l’ultime étape.\nL'extraction du sel est pratiquée dans le lac lui-même, de façon manuelle.",
-                          style: TextStyle(fontSize: 12, color: Colors.black),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: height * .015,
-                    ),
-                  ]),
-                ),
-              ),
+                  ),
+                )
+              ]),
             ),
-          ],
-        ),
-      ),
-      bottomNavigationBar: Container(
-        height: height * .12,
-        child: Padding(
-          padding: const EdgeInsets.all(10.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Container(
-                width: width * .28,
-                decoration: BoxDecoration(
-                    color: Colors.grey,
-                    borderRadius: BorderRadius.circular(12)),
-                child: const Padding(
-                  padding: EdgeInsets.all(8),
-                  child: Icon(
-                    CupertinoIcons.paperplane_fill,
-                    color: Colors.lightBlueAccent,
-                    size: 30,
+            Container(
+              height: height * .45,
+              margin: const EdgeInsets.only(left: 12, right: 16),
+              padding: EdgeInsets.all(8),
+              decoration: const BoxDecoration(color: Colors.white),
+              child: Column(children: [
+                Row(
+                  children: const [
+                    Text(
+                      "Dakar",
+                      style: TextStyle(
+                          color: kPrimaryColor,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: height * .01,
+                ),
+                const Align(
+                  alignment: Alignment.center,
+                  child: Text(
+                    "Surface est couverte d'un tapis poussiéreux de minéraux (silicates),urface est couverte d'un tapis poussiéreux de minéraux (silicates),urface est couverte d'un tapis poussiéreux de minéraux.",
+                    style: TextStyle(
+                        color: kTextColor,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w100),
                   ),
                 ),
-              ),
-              Container(
-                  height: height * .12,
-                  width: width * .6,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(12),
-                    color: Colors.lightBlueAccent,
-                  ),
-                  alignment: Alignment.center,
-                  child: const Text(
-                    "Commencer",
-                    style: TextStyle(
-                      color: Colors.blueGrey,
-                      fontSize: 20,
-                      fontWeight: FontWeight.w700,
+                SizedBox(
+                  height: height * .01,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    InkWell(
+                      onTap: () => fav.favCounter(),
+                      child: Container(
+                          height: 36,
+                          width: width * .12,
+                          decoration: BoxDecoration(
+                              border: Border.all(color: kPrimaryColor),
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(10)),
+                          child: const Icon(
+                            Icons.favorite_border,
+                            color: kPrimaryColor,
+                            size: 28,
+                          )),
                     ),
-                  ))
-            ],
-          ),
+                    InkWell(
+                      onTap: () {
+                        debugPrint("Tapped");
+                      },
+                      child: Container(
+                          height: 36,
+                          width: width * .67,
+                          padding: const EdgeInsets.all(4),
+                          margin: const EdgeInsets.all(8),
+                          decoration: BoxDecoration(
+                              color: kPrimaryColor,
+                              borderRadius: BorderRadius.circular(12)),
+                          child: const Align(
+                            alignment: Alignment.center,
+                            child: Text(
+                              "Reservez",
+                              style: TextStyle(
+                                  color: kBackgroundColor,
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w100),
+                            ),
+                          )),
+                    ),
+                  ],
+                )
+              ]),
+            )
+          ],
         ),
       ),
     );

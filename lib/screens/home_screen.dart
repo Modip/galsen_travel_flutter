@@ -20,38 +20,39 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: kBackgroundColor,
-      body: SafeArea(
+      appBar: AppBar(
+        backgroundColor: kPrimaryColor,
+        elevation: 0,
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text("MODIP Travel",
+                style: TextStyle(
+                    fontSize: width * 0.05,
+                    fontWeight: FontWeight.w600,
+                    color: Colors.white)),
+            Container(
+              height: height * 0.06,
+              width: width * 0.2,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(14),
+                  image: const DecorationImage(
+                      image: AssetImage("assets/dakar1.jpg"))),
+            ),
+          ],
+        ),
+      ),
+      body: SingleChildScrollView(
         child: Column(
           children: [
             SizedBox(
-              height: height * 0.12,
+              height: height * 0.03,
               child: Container(
                 decoration: const BoxDecoration(
                     color: kPrimaryColor,
                     borderRadius: BorderRadius.only(
                         bottomLeft: Radius.circular(16),
                         bottomRight: Radius.circular(16))),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text("MODIP Travel",
-                          style: TextStyle(
-                              fontSize: width * 0.05,
-                              fontWeight: FontWeight.w600,
-                              color: kTextColor)),
-                      Container(
-                        height: height * 0.06,
-                        width: width * 0.2,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(14),
-                            image: const DecorationImage(
-                                image: AssetImage("assets/dakar1.jpg"))),
-                      ),
-                    ],
-                  ),
-                ),
               ),
             ),
             SizedBox(
@@ -65,28 +66,35 @@ class _HomeScreenState extends State<HomeScreen> {
                 height: height * 0.08,
                 decoration: BoxDecoration(
                     color: Colors.white,
+                    border: Border.all(color: kPrimaryColor),
                     borderRadius: BorderRadius.circular(10),
-                    boxShadow: [
+                    boxShadow: const [
                       BoxShadow(
-                          offset: const Offset(3, 3),
-                          blurRadius: 10,
-                          color: Colors.white.withOpacity(0.15),
-                          spreadRadius: -2)
+                          offset: Offset(1, 1),
+                          blurRadius: 8,
+                          color: kTextColor,
+                          spreadRadius: -4)
                     ]),
-                child: const TextField(
-                  decoration: InputDecoration(
-                    hintText: "Search your ...",
-                    hintStyle: TextStyle(
-                      fontSize: 15,
-                      color: kTextColor,
+                child: const Center(
+                  child: TextField(
+                    decoration: InputDecoration(
+                      border: InputBorder.none,
+                      hintText: "Search your ...",
+                      hintStyle: TextStyle(
+                        fontSize: 15,
+                        color: kPrimaryColor,
+                      ),
+                      suffixIcon: Icon(
+                        Icons.search,
+                        color: kPrimaryColor,
+                      ),
                     ),
-                    suffixIcon: Icon(Icons.search),
                   ),
                 ),
               ),
             ),
-            const SizedBox(
-              height: 8,
+            SizedBox(
+              height: height * 0.01,
             ),
             SizedBox(
               height: height * 0.06,
@@ -101,8 +109,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       width: width * 0.28,
                       height: height * 0.01,
                       decoration: BoxDecoration(
+                        border: Border.all(color: kPrimaryColor),
                         borderRadius: BorderRadius.circular(8),
-                        color: Colors.white,
+                        color: kBackgroundColor,
                       ),
                       child: Center(
                         child: Text(
@@ -110,7 +119,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           style: TextStyle(
                               fontSize: width * 0.05,
                               fontWeight: FontWeight.w600,
-                              color: kTextColor),
+                              color: kPrimaryColor),
                         ),
                       ),
                     ),
@@ -118,11 +127,11 @@ class _HomeScreenState extends State<HomeScreen> {
                 },
               ),
             ),
-            const SizedBox(
-              height: 10,
+            SizedBox(
+              height: height * 0.01,
             ),
             SizedBox(
-              height: height * .37,
+              height: height * .4,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: places.length,
@@ -146,7 +155,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       "Pour vous",
                       textAlign: TextAlign.start,
                       style: TextStyle(
-                          color: kTextColor,
+                          color: kPrimaryColor,
                           fontWeight: FontWeight.bold,
                           fontSize: 16),
                     )
@@ -158,10 +167,15 @@ class _HomeScreenState extends State<HomeScreen> {
               height: 5,
             ),
             SizedBox(
-              height: height * .12,
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
+              child: GridView.builder(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  // crossAxisSpacing: 5,
+                  mainAxisSpacing: 10,
+                  childAspectRatio: 2,
+                ),
                 itemCount: recommendes.length,
+                clipBehavior: Clip.none,
                 shrinkWrap: true,
                 itemBuilder: (context, index) => RecommendeItem(
                   recommende: recommendes[index],
@@ -173,7 +187,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       bottomNavigationBar: Container(
         color: kBackgroundColor,
-        height: height * 0.08,
+        height: height * 0.09,
         child: Padding(
           padding: const EdgeInsets.all(10),
           child: Row(
@@ -181,19 +195,19 @@ class _HomeScreenState extends State<HomeScreen> {
             children: const [
               Icon(
                 Icons.home,
-                color: Colors.white,
+                color: kTextColor,
               ),
               Icon(
                 Icons.explore,
-                color: kTextColor,
+                color: kPrimaryColor,
               ),
               Icon(
                 Icons.add_a_photo,
-                color: kTextColor,
+                color: kPrimaryColor,
               ),
               Icon(
                 Icons.favorite,
-                color: kTextColor,
+                color: kPrimaryColor,
               ),
             ],
           ),

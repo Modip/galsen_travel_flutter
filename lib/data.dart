@@ -15,7 +15,7 @@ List<Place> places = [
     title: "Corniche",
     region: "Dakar",
     description:
-        "urface est couverte d'un tapis poussiéreux de minéraux (silicates), de cassures et de cratères d'impact. La planète ressemble beaucoup en apparence à la Lune, ne présentant a priori aucun signe d'activité interne.\n\nLa proximité du Soleil engendre des températures en surface allant jusqu'à 427°C mais pouvant tomber à -183 °C au fond des cratères polaires (là où les rayons du Soleil ne parviennent jamais).",
+        "Surface est couverte d'un tapis poussiéreux de minéraux (silicates), de cassures et de cratères d'impact. La planète ressemble beaucoup en apparence à la Lune, ne présentant a priori aucun signe d'activité interne.\n\nLa proximité du Soleil engendre des températures en surface allant jusqu'à 427°C mais pouvant tomber à -183 °C au fond des cratères polaires (là où les rayons du Soleil ne parviennent jamais).",
     image: "assets/dakar1.jpg",
   ),
   Place(
@@ -97,14 +97,7 @@ List<Recommende> recommendes = [
       region: "Kaolack.",
       image: "assets/lac_rose.png"),
 ];
-final categoriItems = [
-  {"label": "Places", "active": false},
-  {"label": "Hotels", "active": false},
-  {"label": "Monument", "active": false},
-  {"label": "Plages", "active": false},
-  {"label": "Parcs", "active": false},
-  {"label": "Evenement", "active": false}
-];
+
 List categories = [
   "Places",
   "Hotels",
