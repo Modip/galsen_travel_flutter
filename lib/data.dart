@@ -20,14 +20,6 @@ List<Place> places = [
   ),
   Place(
     id: 2,
-    title: "Saloum",
-    region: "Kaolack",
-    description:
-        "Vénus est souvent décrite comme une « sœur jumelle » de la Terre en raison de ses caractéristiques globales très proches de celles de notre planète : son diamètre vaut en effet 95 % de celui de la Terre.\n\nNéanmoins, les conditions qui règnent à sa surface diffèrent radicalement des conditions terrestres : son atmosphère, extrêmement dense est occupée par d'épais nuages de dioxyde de soufre. On y observe le plus fort effet de serre du système solaire, permettant d'atteindre des températures de surface tournant autour des 460 °C, soit bien plus que celle de Mercure pourtant plus proche du soleil.\n\nLa surface de Vénus est relativement jeune, du fait d'un volcanisme entraînant parfois la présence de lave en fusion au sol.",
-    image: "assets/senegal2.jpg",
-  ),
-  Place(
-    id: 3,
     title: "Mbour",
     region: "Thies",
     description:
@@ -35,11 +27,18 @@ List<Place> places = [
     image: "assets/senegal3.jpg",
   ),
   Place(
+    id: 3,
+    title: "Saloum",
+    region: "Kaolack",
+    description:
+        "Vénus est souvent décrite comme une « sœur jumelle » de la Terre en raison de ses caractéristiques globales très proches de celles de notre planète : son diamètre vaut en effet 95 % de celui de la Terre.\n\nNéanmoins, les conditions qui règnent à sa surface diffèrent radicalement des conditions terrestres : son atmosphère, extrêmement dense est occupée par d'épais nuages de dioxyde de soufre. On y observe le plus fort effet de serre du système solaire, permettant d'atteindre des températures de surface tournant autour des 460 °C, soit bien plus que celle de Mercure pourtant plus proche du soleil.\n\nLa surface de Vénus est relativement jeune, du fait d'un volcanisme entraînant parfois la présence de lave en fusion au sol.",
+    image: "assets/senegal2.jpg",
+  ),
+  Place(
       id: 4,
       title: "Kaolack",
       region: "Saloum",
-      description:
-          "De toutes ls mais ausslar.",
+      description: "De toutes ls mais ausslar.",
       image: "assets/saloum1.jpg"),
   Place(
       id: 5,

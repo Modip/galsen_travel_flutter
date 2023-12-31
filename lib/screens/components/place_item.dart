@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:galsen_travel/screens/detail.dart';
+import 'package:get/get.dart';
 
 import '../../data.dart';
 
@@ -16,8 +17,13 @@ class PlaceItem extends StatelessWidget {
       padding: const EdgeInsets.only(left: 8.0, right: 8),
       child: GestureDetector(
         onTap: () {
-          Navigator.of(context).push(
-              MaterialPageRoute(builder: (context) => Detail(place: place)));
+          Get.to(
+            () => Detail(
+              place: place,
+            ),
+            transition: Transition.fade,
+            duration: const Duration(seconds: 2),
+          );
         },
         child: Container(
           width: width * 0.6,
@@ -31,12 +37,12 @@ class PlaceItem extends StatelessWidget {
           ),
           child: Stack(children: [
             Align(
-              alignment: Alignment.bottomCenter,
+              alignment: Alignment.bottomLeft,
               child: SizedBox(
                 height: height * 0.12,
                 width: width * 0.4,
                 child: Padding(
-                  padding: const EdgeInsets.only(bottom: 8),
+                  padding: const EdgeInsets.only(bottom: 8, left: 10),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.end,
                     crossAxisAlignment: CrossAxisAlignment.start,

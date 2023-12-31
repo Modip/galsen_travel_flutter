@@ -1,19 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:galsen_travel/constant.dart';
-import 'package:galsen_travel/controllers/detail_controller.dart';
 import 'package:get/get.dart';
 
+import '../constant.dart';
+import '../controllers/detail_controller.dart';
 import '../data.dart';
 
-class Detail extends StatefulWidget {
+class Detail extends StatelessWidget {
   final Place place;
   const Detail({Key? key, required this.place}) : super(key: key);
 
-  @override
-  State<Detail> createState() => _DetailState();
-}
-
-class _DetailState extends State<Detail> {
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
@@ -29,13 +24,12 @@ class _DetailState extends State<Detail> {
               margin: const EdgeInsets.only(left: 12),
               height: height * .6,
               width: width * .9,
-              decoration: const BoxDecoration(
-                  borderRadius: BorderRadius.only(
+              decoration: BoxDecoration(
+                  borderRadius: const BorderRadius.only(
                       bottomLeft: Radius.circular(10),
                       bottomRight: Radius.circular(10)),
                   image: DecorationImage(
-                      image: AssetImage("assets/dakar1.jpg"),
-                      fit: BoxFit.cover)),
+                      image: AssetImage(place.image), fit: BoxFit.cover)),
               child: Stack(children: [
                 Padding(
                   padding: const EdgeInsets.all(8.0),
@@ -67,14 +61,14 @@ class _DetailState extends State<Detail> {
             Container(
               height: height * .45,
               margin: const EdgeInsets.only(left: 12, right: 16),
-              padding: EdgeInsets.all(8),
+              padding: const EdgeInsets.all(8),
               decoration: const BoxDecoration(color: Colors.white),
               child: Column(children: [
                 Row(
-                  children: const [
+                  children: [
                     Text(
-                      "Dakar",
-                      style: TextStyle(
+                      place.title,
+                      style: const TextStyle(
                           color: kPrimaryColor,
                           fontSize: 20,
                           fontWeight: FontWeight.bold),

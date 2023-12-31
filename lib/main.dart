@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:galsen_travel/constant.dart';
+import 'package:galsen_travel/screens/detail.dart';
 import 'package:galsen_travel/screens/welcome.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -22,7 +23,12 @@ class MyApp extends StatelessWidget {
           primaryColor: kPrimaryColor,
           textTheme: GoogleFonts.mulishTextTheme()),
       debugShowCheckedModeBanner: false,
-      home: const WelcomePage(),
+      //home: const WelcomePage(),
+      initialRoute: "/",
+      getPages: [
+        GetPage(name: "/", page: () => WelcomePage()),
+        // GetPage(name: "/detail", page: ()=> const Detail()),
+      ],
     );
   }
 }
