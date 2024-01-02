@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:galsen_travel/constant.dart';
-import 'package:galsen_travel/screens/detail.dart';
+import 'package:galsen_travel/screens/carrousel.dart';
+import 'package:galsen_travel/screens/detail/detail_place.dart';
+import 'package:galsen_travel/screens/test_categorie.dart';
 import 'package:galsen_travel/screens/welcome.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';

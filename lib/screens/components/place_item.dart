@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:galsen_travel/screens/detail.dart';
+import 'package:galsen_travel/screens/detail/detail_place.dart';
 import 'package:get/get.dart';
 
 import '../../data.dart';
@@ -18,7 +18,7 @@ class PlaceItem extends StatelessWidget {
       child: GestureDetector(
         onTap: () {
           Get.to(
-            () => Detail(
+            () => DetailPlace(
               place: place,
             ),
             transition: Transition.fade,
