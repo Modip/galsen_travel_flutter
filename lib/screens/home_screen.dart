@@ -44,7 +44,8 @@ class _HomeScreenState extends State<HomeScreen> {
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(14),
                   image: const DecorationImage(
-                      image: AssetImage("assets/dakar1.jpg"))),
+                      fit: BoxFit.cover,
+                      image: AssetImage("assets/modip2.jpeg"))),
             ),
           ],
         ),

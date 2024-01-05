@@ -29,7 +29,7 @@ class WelcomePage extends StatelessWidget {
               child: Column(
                 children: [
                   Text(
-                    "Des paysages magnifiques, \nUne faune et une flore diversifiée,\nDes plages à coupez le soufle",
+                    "Des paysages magnifiques, \nUne faune et une flore diversifiée,\nDes plages à couper le soufle",
                     style: TextStyle(
                         fontSize: width * 0.05,
                         fontWeight: FontWeight.w100,
