@@ -11,10 +11,8 @@ class DetailPlace extends StatelessWidget {
   DetailPlace({Key? key, required this.place}) : super(key: key);
 
   final imgs = [
-    "assets/senegal1.jpg",
-    "assets/senegal2.jpg",
-    "assets/casamance1.jpg",
-    "assets/benja1.jpg",
+    "assets/images/places/corniche1.jpg",
+    "assets/images/places/corniche2.jpg",
   ];
 
   @override

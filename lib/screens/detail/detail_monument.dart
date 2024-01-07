@@ -6,15 +6,15 @@ import 'package:get/get.dart';
 
 import '../../constant.dart';
 
-class DetailHotel extends StatelessWidget {
-  Hotel hotel;
-  DetailHotel({Key? key, required this.hotel}) : super(key: key);
+class DetailMonument extends StatelessWidget {
+  Monument monument;
+  DetailMonument({Key? key, required this.monument}) : super(key: key);
 
   final imgs = [
-    "assets/images/hotels/hotel1.jpg",
-    "assets/images/hotels/hotel2.jpg",
-    "assets/images/hotels/hotel3.jpg",
-    "assets/images/hotels/hotel4.jpg",
+    "assets/images/places/senegal1.jpg",
+    "assets/images/places/senegal2.jpg",
+    "assets/images/places/casamance1.jpg",
+    "assets/images/places/banja1.jpg",
   ];
 
   @override
@@ -29,7 +29,7 @@ class DetailHotel extends StatelessWidget {
           children: [
             Container(
               margin: const EdgeInsets.only(left: 12),
-              decoration: const BoxDecoration(color: Colors.white),
+              color: Colors.white,
               height: height * .6,
               width: width * .9,
               child: Center(
@@ -58,7 +58,7 @@ class DetailHotel extends StatelessWidget {
                 Row(
                   children: [
                     Text(
-                      hotel.title,
+                      monument.title,
                       style: const TextStyle(
                           color: kPrimaryColor,
                           fontSize: 18,

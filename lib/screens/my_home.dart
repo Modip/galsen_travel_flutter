@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:galsen_travel/screens/categories_pages/monuments.dart';
 
 import '../constant.dart';
 import '../data.dart';
 import 'categories_pages/evenements.dart';
 import 'categories_pages/hotel.dart';
-import 'categories_pages/monuments.dart';
 import 'categories_pages/parc.dart';
 import 'categories_pages/place.dart';
 import 'categories_pages/plage.dart';
@@ -219,7 +219,7 @@ class _MyHomeState extends State<MyHome> with TickerProviderStateMixin {
               children: const [
                 PlacePage(),
                 HotelPage(),
-                MonumentsPage(),
+                MonumentPage(),
                 ParcPage(),
                 PlagePage(),
                 EvenementsPage(),

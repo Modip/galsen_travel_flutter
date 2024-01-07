@@ -18,7 +18,8 @@ class WelcomePage extends StatelessWidget {
             width: width,
             decoration: const BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage("assets/senegal1.jpg"), fit: BoxFit.cover),
+                  image: AssetImage("assets/images/senegal1.jpg"),
+                  fit: BoxFit.cover),
             ),
           ),
           Align(

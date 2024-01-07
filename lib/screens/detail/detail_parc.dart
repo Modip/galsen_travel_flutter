@@ -11,10 +11,9 @@ class DetailParc extends StatelessWidget {
   DetailParc({Key? key, required this.parc}) : super(key: key);
 
   final imgs = [
-    "assets/senegal1.jpg",
-    "assets/senegal2.jpg",
-    "assets/casamance1.jpg",
-    "assets/benja1.jpg",
+    "assets/images/parcs/banja3.jpeg",
+    "assets/images/parcs/banja1.jpg",
+    "assets/images/parcs/banja2.jpg",
   ];
 
   @override

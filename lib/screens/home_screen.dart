@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:galsen_travel/constant.dart';
+import 'package:galsen_travel/data.dart';
+
 import 'explore.dart';
 import 'favorite.dart';
 import 'register.dart';
 import 'my_home.dart';
 
 class HomeScreen extends StatefulWidget {
+  
   const HomeScreen({Key? key}) : super(key: key);
+ 
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -16,7 +20,7 @@ class _HomeScreenState extends State<HomeScreen> {
   int mycurrentIndex = 0;
   List pages = [
     const MyHome(),
-    const ExplorePage(),
+    ExplorePage(),
     const FavoritePage(),
     const RegisterPage(),
   ];
@@ -45,7 +49,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   borderRadius: BorderRadius.circular(14),
                   image: const DecorationImage(
                       fit: BoxFit.cover,
-                      image: AssetImage("assets/modip2.jpeg"))),
+                      image: AssetImage("assets/images/modip_logo.jpeg"))),
             ),
           ],
         ),

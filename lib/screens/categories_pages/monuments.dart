@@ -1,19 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:galsen_travel/screens/components/monument_item.dart';
 
-class MonumentsPage extends StatelessWidget {
-  const MonumentsPage({Key? key}) : super(key: key);
+import '../../data.dart';
+import '../components/place_item.dart';
+
+class MonumentPage extends StatelessWidget {
+  const MonumentPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Container(
-            child: const Center(
-                child: Text(
-          "MonumentsPage page",
-          style: TextStyle(fontSize: 20, color: Colors.red),
-        )))
-      ],
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
+    return SizedBox(
+      height: height * .9,
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        itemCount: monuments.length,
+        shrinkWrap: true,
+        itemBuilder: (context, index) => MonumentItem(
+          monument: monuments[index],
+        ),
+      ),
     );
   }
 }

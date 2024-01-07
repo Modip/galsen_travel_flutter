@@ -41,30 +41,36 @@ class RecommendeItem extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
-                recommende.title,
-                style: TextStyle(
-                    fontSize: width * 0.033,
-                    color: Colors.white,
-                    fontWeight: FontWeight.w200),
+              Padding(
+                padding: const EdgeInsets.only(right: 8.0),
+                child: Text(
+                  recommende.title,
+                  style: TextStyle(
+                      fontSize: width * 0.03,
+                      color: Colors.white,
+                      fontWeight: FontWeight.w200),
+                ),
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    recommende.star,
-                    style:
-                        TextStyle(fontSize: width * 0.04, color: Colors.white),
-                  ),
-                  const SizedBox(
-                    width: 6,
-                  ),
-                  Icon(
-                    CupertinoIcons.star_fill,
-                    size: height * 0.023,
-                    color: Colors.amber,
-                  )
-                ],
+              Padding(
+                padding: const EdgeInsets.only(right: 8.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      recommende.star,
+                      style: TextStyle(
+                          fontSize: width * 0.04, color: Colors.white),
+                    ),
+                    const SizedBox(
+                      width: 6,
+                    ),
+                    Icon(
+                      CupertinoIcons.star_fill,
+                      size: height * 0.023,
+                      color: Colors.amber,
+                    )
+                  ],
+                ),
               ),
             ],
           ),
