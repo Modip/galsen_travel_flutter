@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:galsen_travel/screens/categories_pages/monuments.dart';
 
 import '../constant.dart';
 import '../data.dart';
 import 'categories_pages/evenements.dart';
 import 'categories_pages/hotel.dart';
+import 'categories_pages/monuments.dart';
 import 'categories_pages/parc.dart';
 import 'categories_pages/place.dart';
 import 'categories_pages/plage.dart';
@@ -100,7 +100,7 @@ class _MyHomeState extends State<MyHome> with TickerProviderStateMixin {
                 Tab(
                   child: Container(
                     width: width * 0.28,
-                    // width: width * 0.4,
+                   
                     decoration: BoxDecoration(
                       border: Border.all(color: kPrimaryColor),
                       borderRadius: BorderRadius.circular(6),
@@ -212,7 +212,7 @@ class _MyHomeState extends State<MyHome> with TickerProviderStateMixin {
           const SizedBox(
             height: 8,
           ),
-          Container(
+          SizedBox(
             height: height * .4,
             child: TabBarView(
               controller: _tabcontroller,
@@ -255,7 +255,6 @@ class _MyHomeState extends State<MyHome> with TickerProviderStateMixin {
             child: GridView.builder(
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
-                // crossAxisSpacing: 5,
                 mainAxisSpacing: 10,
                 childAspectRatio: 2,
               ),

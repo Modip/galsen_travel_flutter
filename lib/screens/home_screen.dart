@@ -20,7 +20,7 @@ class _HomeScreenState extends State<HomeScreen> {
   int mycurrentIndex = 0;
   List pages = [
     const MyHome(),
-    ExplorePage(),
+     ExplorePage(),
     const FavoritePage(),
     const RegisterPage(),
   ];

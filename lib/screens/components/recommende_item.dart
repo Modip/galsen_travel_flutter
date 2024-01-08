@@ -35,7 +35,7 @@ class RecommendeItem extends StatelessWidget {
             ),
           ),
           SizedBox(
-            width: width * .01,
+            width: width * .008,
           ),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -46,7 +46,7 @@ class RecommendeItem extends StatelessWidget {
                 child: Text(
                   recommende.title,
                   style: TextStyle(
-                      fontSize: width * 0.03,
+                      fontSize: width * 0.028,
                       color: Colors.white,
                       fontWeight: FontWeight.w200),
                 ),

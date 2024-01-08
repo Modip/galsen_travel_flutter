@@ -11,7 +11,7 @@ class DetailParc extends StatelessWidget {
   DetailParc({Key? key, required this.parc}) : super(key: key);
 
   final imgs = [
-    "assets/images/parcs/banja3.jpeg",
+    "assets/images/parcs/niokoloko1.jpeg",
     "assets/images/parcs/banja1.jpg",
     "assets/images/parcs/banja2.jpg",
   ];
@@ -68,11 +68,11 @@ class DetailParc extends StatelessWidget {
                 SizedBox(
                   height: height * .005,
                 ),
-                const Align(
+                Align(
                   alignment: Alignment.center,
                   child: Text(
-                    "Surface est couverte d'un tapis poussiéreux de minéraux (silicates),urface est couverte d'un tapis poussiéreux de minéraux (silicates),urface est couverte d'un tapis poussiéreux de minéraux.",
-                    style: TextStyle(
+                    parc.description,
+                    style: const TextStyle(
                         color: kTextColor,
                         fontSize: 16,
                         fontWeight: FontWeight.w100),
