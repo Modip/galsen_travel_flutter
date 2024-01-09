@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:galsen_travel/constant.dart';
+import 'package:galsen_travel/controllers/register_controller.dart';
+import 'package:get/get.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({Key? key}) : super(key: key);
@@ -12,10 +14,9 @@ class RegisterPage extends StatefulWidget {
 class _RegisterPageState extends State<RegisterPage> {
   @override
   Widget build(BuildContext context) {
-    var emailController = TextEditingController();
-    var passwordController = TextEditingController();
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
+    final controller = Get.put(RegisterController());
 
     return SingleChildScrollView(
       child: Column(
@@ -62,10 +63,38 @@ class _RegisterPageState extends State<RegisterPage> {
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 10.0, right: 8),
-                child: Column(
-                  children: const [
-                    TextField(
-                      decoration: InputDecoration(
+                child: Form(
+                  key: controller.formKey,
+                  child: Column(
+                    children: [
+                      TextFormField(
+                        validator: (email) => controller.validateEmail(email),
+                        decoration: const InputDecoration(
+                            enabledBorder: UnderlineInputBorder(
+                              borderSide:
+                                  BorderSide(color: kPrimaryColor, width: 2),
+                            ),
+                            focusedBorder: UnderlineInputBorder(
+                              borderSide:
+                                  BorderSide(color: kPrimaryColor, width: 3),
+                            ),
+                            suffixIcon: Icon(
+                              Icons.check,
+                              size: 30,
+                              color: kPrimaryColor,
+                            ),
+                            label: Text(
+                              "Email",
+                              style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                  color: kPrimaryColor),
+                            )),
+                      ),
+                      TextFormField(
+                        validator: (password) =>
+                            controller.validatePassword(password),
+                        decoration: const InputDecoration(
                           enabledBorder: UnderlineInputBorder(
                             borderSide:
                                 BorderSide(color: kPrimaryColor, width: 2),
@@ -75,67 +104,47 @@ class _RegisterPageState extends State<RegisterPage> {
                                 BorderSide(color: kPrimaryColor, width: 3),
                           ),
                           suffixIcon: Icon(
-                            Icons.check,
+                            Icons.visibility_off,
                             size: 30,
                             color: kPrimaryColor,
                           ),
                           label: Text(
-                            "Email",
+                            "Mot de passe",
                             style: TextStyle(
                                 fontSize: 20,
                                 fontWeight: FontWeight.bold,
                                 color: kPrimaryColor),
-                          )),
-                    ),
-                    TextField(
-                      decoration: InputDecoration(
-                        enabledBorder: UnderlineInputBorder(
-                          borderSide:
-                              BorderSide(color: kPrimaryColor, width: 2),
-                        ),
-                        focusedBorder: UnderlineInputBorder(
-                          borderSide:
-                              BorderSide(color: kPrimaryColor, width: 3),
-                        ),
-                        suffixIcon: Icon(
-                          Icons.visibility_off,
-                          size: 30,
-                          color: kPrimaryColor,
-                        ),
-                        label: Text(
-                          "Mot de passe",
-                          style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                              color: kPrimaryColor),
+                          ),
                         ),
                       ),
-                    ),
-                    TextField(
-                      decoration: InputDecoration(
-                        enabledBorder: UnderlineInputBorder(
-                          borderSide:
-                              BorderSide(color: kPrimaryColor, width: 2),
-                        ),
-                        focusedBorder: UnderlineInputBorder(
-                          borderSide:
-                              BorderSide(color: kPrimaryColor, width: 3),
-                        ),
-                        suffixIcon: Icon(
-                          Icons.visibility_off,
-                          size: 30,
-                          color: kPrimaryColor,
-                        ),
-                        label: Text(
-                          "Confirme",
-                          style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                              color: kPrimaryColor),
+                      TextFormField(
+                        validator: (password) =>
+                            controller.validateConfirmePassword(password),
+                        decoration: const InputDecoration(
+                          enabledBorder: UnderlineInputBorder(
+                            borderSide:
+                                BorderSide(color: kPrimaryColor, width: 2),
+                          ),
+                          focusedBorder: UnderlineInputBorder(
+                            borderSide:
+                                BorderSide(color: kPrimaryColor, width: 3),
+                          ),
+                          suffixIcon: Icon(
+                            Icons.visibility_off,
+                            size: 30,
+                            color: kPrimaryColor,
+                          ),
+                          label: Text(
+                            "Confirme",
+                            style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                                color: kPrimaryColor),
+                          ),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
               SizedBox(
@@ -145,16 +154,17 @@ class _RegisterPageState extends State<RegisterPage> {
                 height: height * 0.1,
                 width: width * 5,
                 child: Container(
-                    // padding: const EdgeInsets.all(12),
                     margin: const EdgeInsets.all(8),
                     decoration: BoxDecoration(
                         color: kPrimaryColor,
                         borderRadius: BorderRadius.circular(20)),
-                    child: const Center(
-                      child: Text(
-                        "valider",
-                        style: TextStyle(fontSize: 20, color: Colors.white),
-                      ),
+                    child: Center(
+                      child: TextButton(
+                          onPressed: () => controller.onSubmit(),
+                          child: const Text(
+                            "valider",
+                            style: TextStyle(fontSize: 20, color: Colors.white),
+                          )),
                     )),
               ),
               SizedBox(
