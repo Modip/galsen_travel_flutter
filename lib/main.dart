@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:galsen_travel/constant.dart';
+import 'package:galsen_travel/data.dart';
+import 'package:galsen_travel/screens/detail/detail_parc.dart';
 import 'package:galsen_travel/screens/detail/detail_place.dart';
 import 'package:galsen_travel/screens/welcome.dart';
 import 'package:get/get.dart';
@@ -27,7 +29,7 @@ class MyApp extends StatelessWidget {
       initialRoute: "/",
       getPages: [
         GetPage(name: "/", page: () => WelcomePage()),
-        // GetPage(name: "/detail", page: ()=> const Detail()),
+        // GetPage(name: "/detailParc", page: ()=>  DetailParc(parc: parcs[index],)),
       ],
     );
   }

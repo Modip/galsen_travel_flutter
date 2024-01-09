@@ -4,14 +4,9 @@ import 'package:galsen_travel/constant.dart';
 import 'package:galsen_travel/controllers/register_controller.dart';
 import 'package:get/get.dart';
 
-class RegisterPage extends StatefulWidget {
+class RegisterPage extends StatelessWidget {
   const RegisterPage({Key? key}) : super(key: key);
 
-  @override
-  State<RegisterPage> createState() => _RegisterPageState();
-}
-
-class _RegisterPageState extends State<RegisterPage> {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
